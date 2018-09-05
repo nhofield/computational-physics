@@ -7,16 +7,13 @@ t1 = time.time()
 N = 5
 eps_relative = np.zeros(N)
 number_N = np.zeros(N)
-u_exact = lambda x: 1. - (1. - np.exp(-10.))*x - np.exp(-10.*x)
 filename = "proj1aRun.dat"
 
 for i in range(N):
     n = 10**(i+1)
     run = os.system("g++ project1.cpp -o project1 && ./project1 %d && rm project1" % n)
-    x1, y1 = np.loadtxt(filename, unpack=True)
-    eps_relative[i] = np.linalg.norm(u_exact(x1) - y1)/np.linalg.norm(u_exact(x1))
+    eps_relative[i] = np.loadtxt(filename, unpack=True)
     number_N[i] = n
-
 
 print number_N
 F = 14

@@ -4,8 +4,31 @@
 #include <fstream>
 using namespace std;
 inline double f(double x){return 100.0*exp(-10.0*x);}
+inline double analytical(double x){return 1.0-(1-exp(-10.0))*x - exp(-10.0*x);}
 
+/*double norm(double*& array[], int sizeofarray)
+  Calculates norm of a vector */ /*
+  {
+    double norm_computed = 0.0;
+    for(int i=0 ; i<sizeofarray; i++)
+      {
+        norm_computed += array[i]*array[i]);
+      }
+    return sqrt(norm_computed);
+  }
+*/
 
+/*
+double subtract_arrays(double arr1[], double arr2[], int sizeofarrays)
+  {
+    double difference_array[sizeofarrays];
+    for(int i=0; i < sizeofarrays; i++)
+      {
+        difference_array[i] = arr1[i]-arr2[i];
+      }
+    return difference_array;
+  }
+*/
 int main(int argc, char* argv[])
   {
 
@@ -16,7 +39,7 @@ int main(int argc, char* argv[])
     double* d       = new double[n];
     double* c       = new double[n-1];
 
-    double* b       = new double[n];
+    double* u       = new double[n];  //Analytical solution
     double* b_tilde = new double[n];
     double* d_tilde = new double[n];
     double* v       = new double[n];
@@ -29,6 +52,9 @@ int main(int argc, char* argv[])
         a[i] = -1.0;
         d[i] = 2.0;
         c[i] = -1.0;
+
+        //Analytical solution
+        u[i] = analytical(h*i);
       }
 
       //Setting d_tilde equal to 2
@@ -43,6 +69,8 @@ int main(int argc, char* argv[])
       {
         d_tilde[i] = d[i] - (a[i-1]*c[i-1])/d_tilde[i-1];
         b_tilde[i] = f(i*h)*hh - (a[i-1]*b_tilde[i-1])/d_tilde[i-1];
+
+        //Analytical solution
       }
 
 //Slette gir feilmelding delete[] a;
@@ -56,13 +84,21 @@ int main(int argc, char* argv[])
         v[i] = (b_tilde[i] - c[i]*v[i+1])/d_tilde[i];
       }
 
-    ofstream outfile;
-    outfile.open("proj1aRun.dat");
-    for(int i = 0; i <= n; i++)
-      {
-      outfile << i*h << " " << v[i] << endl;
-      }
+      //Calc eps_relative
+      double eps_relative;
+      double temp_sum1 = 0.0;
+      double temp_sum2 = 0.0;
 
+      for(int i=0 ; i< n ; i++)
+        {
+          temp_sum1 += pow((u[i]-v[i]), 2);
+          temp_sum2 += pow(u[i], 2);
+        }
+      eps_relative = sqrt(temp_sum1/temp_sum2);
 
+      ofstream outfile;
+      outfile.open("proj1aRun.dat");
+      outfile << eps_relative << endl;
+      outfile.close();
     return 0;
   }
