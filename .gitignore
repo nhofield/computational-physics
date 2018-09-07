@@ -1,0 +1,11 @@
+#stupid texfiles
+
+*.aux
+*.log
+*.dvi
+*.out
+*.synctex.gz
+
+#data files
+
+*.dat
