@@ -18,26 +18,25 @@ inline double analytical(double x){return 1.0-(1-exp(-10.0))*x - exp(-10.0*x);}
   }
 */
 
-/*
-double subtract_arrays(double arr1[], double arr2[], int sizeofarrays)
+
+void subtract_arrays(double* arr1[], double* arr2[], double* answer, int sizeofarrays)
   {
-    double difference_array[sizeofarrays];
-    for(int i=0; i < sizeofarrays; i++)
+    for(int i = 0 ; i < sizeofarrays; i++)
       {
-        difference_array[i] = arr1[i]-arr2[i];
+        answer[i] = arr1[i] - arr2[i];
       }
-    return difference_array;
   }
-*/
+
+
 int main(int argc, char* argv[])
   {
 
     int n = atoi(argv[1]); //input number of grid points
 
     //Allocating memory for 6 vectors; a, b, c, b_tilde, d_tilde and v (solution)
-    double* a       = new double[n-1];
+    double* a       = new double[n];
     double* d       = new double[n];
-    double* c       = new double[n-1];
+    double* c       = new double[n];
 
     double* u       = new double[n];  //Analytical solution
     double* b_tilde = new double[n];
@@ -73,7 +72,8 @@ int main(int argc, char* argv[])
         //Analytical solution
       }
 
-//Slette gir feilmelding delete[] a;
+      delete []a;
+      delete []d;
 
       v[n-1] = b_tilde[n-1]/d_tilde[n-1];
 
@@ -83,6 +83,10 @@ int main(int argc, char* argv[])
       {
         v[i] = (b_tilde[i] - c[i]*v[i+1])/d_tilde[i];
       }
+
+      delete []c;
+      delete []b_tilde;
+      delete []d_tilde;
 
       //Calc eps_relative
       double eps_relative;
@@ -100,5 +104,8 @@ int main(int argc, char* argv[])
       outfile.open("proj1aRun.dat");
       outfile << eps_relative << endl;
       outfile.close();
+      delete []u;
+      delete []v;
+      
     return 0;
   }

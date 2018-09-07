@@ -15,7 +15,6 @@ for i in range(N):
     eps_relative[i] = np.loadtxt(filename, unpack=True)
     number_N[i] = n
 
-print number_N
 F = 14
 plt.figure(figsize=(10,8))
 plt.xlabel(r"$log_{10}(n)$", fontsize=F)
