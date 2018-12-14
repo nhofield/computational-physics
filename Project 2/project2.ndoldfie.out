@@ -1,0 +1,29 @@
+\BOOKMARK [1][-]{section*.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section*.2}{Theory}{}% 2
+\BOOKMARK [2][-]{section*.3}{Unitary Transformations}{section*.2}% 3
+\BOOKMARK [3][-]{section*.4}{Proof}{section*.3}% 4
+\BOOKMARK [2][-]{section*.5}{Scaled differential Equations}{section*.2}% 5
+\BOOKMARK [3][-]{section*.6}{Part 1: Buckling-Beam problem}{section*.5}% 6
+\BOOKMARK [3][-]{section*.7}{Part 2: Schrodinger-Equation}{section*.5}% 7
+\BOOKMARK [3][-]{section*.8}{Part 3: Quantum-dots in 3 dimensions}{section*.5}% 8
+\BOOKMARK [2][-]{section*.9}{Analytical solutions and other definitions}{section*.2}% 9
+\BOOKMARK [3][-]{section*.10}{Analytical Eigenvalues for the Buckling Beam Toeplitz Matrix}{section*.9}% 10
+\BOOKMARK [3][-]{section*.11}{Analytical Energy values for particle in spherical symmetrical potential with no orbital angular momentum}{section*.9}% 11
+\BOOKMARK [3][-]{section*.12}{Frobenius Norm}{section*.9}% 12
+\BOOKMARK [1][-]{section*.13}{Numerical Method}{}% 13
+\BOOKMARK [2][-]{section*.14}{Jacobi's Eigenvalue Algorithm}{section*.13}% 14
+\BOOKMARK [2][-]{section*.15}{The finite difference method}{section*.13}% 15
+\BOOKMARK [2][-]{section*.16}{Discretization}{section*.13}% 16
+\BOOKMARK [2][-]{section*.17}{Program Structure and Computations}{section*.13}% 17
+\BOOKMARK [2][-]{section*.18}{Main Algorithm}{section*.13}% 18
+\BOOKMARK [2][-]{section*.19}{Unit tests}{section*.13}% 19
+\BOOKMARK [2][-]{section*.20}{Other test functions}{section*.13}% 20
+\BOOKMARK [2][-]{section*.21}{About repository and programs}{section*.13}% 21
+\BOOKMARK [1][-]{section*.22}{Results}{}% 22
+\BOOKMARK [2][-]{section*.23}{Part 1: Buckling-Beam problem, comparison of eigenvalues computed by Jacobi algorithm and numpy.linalg.eig}{section*.22}% 23
+\BOOKMARK [2][-]{section*.24}{Part 2: Schrodinger equation, energy level comparison }{section*.22}% 24
+\BOOKMARK [2][-]{section*.25}{Part 3: Schrodinger equation, Quantum dots}{section*.22}% 25
+\BOOKMARK [1][-]{section*.26}{Discussion}{}% 26
+\BOOKMARK [1][-]{section*.27}{Concluding remarks}{}% 27
+\BOOKMARK [1][-]{section*.28}{Github-Repository}{}% 28
+\BOOKMARK [1][-]{section*.29}{ References}{}% 29
